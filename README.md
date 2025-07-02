@@ -58,7 +58,7 @@ This workshop teaches LangGraph through architectural patterns, not code syntax.
 
 1. **Two versions per pattern**: Start with `patterns_simple/` to understand concepts, then do exercises in `patterns/`
 2. **Six architectural patterns + production implementation**: Each builds on previous concepts
-3. **Four exercises per file**: Modify the code to complete each exercise
+3. **Three exercises per file**: Modify the code to complete each exercise
 4. **Generated output**: Check `generated/` folder after running the patterns
 5. **Incremental Difficulty**: Each pattern builds on previous concepts
 6. **Focus on concepts, not syntax**: Focus on **when** to use each pattern, not just **how**
@@ -83,9 +83,8 @@ For each pattern:
    >     └── AUDIT_TRAIL.md
    > ```
 
-4. **Complete** the 4 exercises by modifying the code in the file you just ran (the one in `patterns/`)
-5. **Complete** the 4 exercises by modifying the code in the file you just ran (the one in `patterns/`)
-6. **Discuss** when you'd use this pattern vs others
+4. **Complete** the 3 exercises by modifying the code in the file you just ran (the one in `patterns/`)
+5. **Discuss** when you'd use this pattern vs others
 
 ## The Six Architectural Patterns
 
