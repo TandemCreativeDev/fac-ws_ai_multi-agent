@@ -180,7 +180,15 @@ python patterns/04_supervisor_agents.py
 #### **Your 3 Exercises** 🎯 _LangGraph Focus_ (modify the code):
 
 1. **Add database expert**: Create `database_expert_agent` for SQL/schema review. Update supervisor logic.
+
+> [!IMPORTANT]  
+> The database agent's state key must be `database_report` for the utils function to be able to pick it up and add to the output folder.
+
 2. **Smart content routing**: Make supervisor check code content (e.g., "if 'sql' in code: route to database expert").
+
+> [!IMPORTANT]  
+> The state key must be `task_type` for the utils function to be able to pick it up and add to the output folder.
+
 3. **Expert collaboration**: Let security expert see quality report before finalising.
 
 ---
