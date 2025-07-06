@@ -10,6 +10,7 @@ class State(TypedDict):
     input: str
     code: str
     review: str
+    refactored_code: str
 
 
 llm = ChatOpenAI(model="gpt-4.1-nano")
@@ -25,13 +26,21 @@ def reviewer(state: State) -> State:
     return {"review": response.content}
 
 
+def refactorer(state: State) -> State:
+    response = llm.invoke(
+        f"Based on suggestions, refactor this code:\n{state['code']}\n{state['review']}")
+    return {"refactored_code": response.content}
+
+
 builder = StateGraph(State)
 builder.add_node("coder", coder)
 builder.add_node("reviewer", reviewer)
+builder.add_node("refactorer", refactorer)
 
 builder.add_edge(START, "coder")
 builder.add_edge("coder", "reviewer")
-builder.add_edge("reviewer", END)
+builder.add_edge("reviewer", "refactorer")
+builder.add_edge("refactorer", END)
 
 workflow = builder.compile()
 
@@ -39,3 +48,4 @@ if __name__ == "__main__":
     result = workflow.invoke({"input": "email validator function"})
     print("CODE:", result["code"])
     print("REVIEW:", result["review"])
+    print("REFACTORED CODE:", result["refactored_code"])
